@@ -1,0 +1,58 @@
+{
+    "taskDefinition": {
+        "taskDefinitionArn": "arn:aws:ecs:eu-north-1:883983425098:task-definition/hss-webapi:4",
+        "containerDefinitions": [
+            {
+                "name": "hsswebapi_test",
+                "image": "zteffano/hsswebapi_test:latest",
+                "cpu": 491,
+                "memory": 204,
+                "portMappings": [
+                    {
+                        "containerPort": 80,
+                        "hostPort": 1337,
+                        "protocol": "tcp",
+                        "name": "hsswebapi_test-80-tcp"
+                    }
+                ],
+                "essential": true,
+                "environment": [
+                    {
+                        "name": "DB_DATABASENAME",
+                        "value": "NEW_HSSAPI_DB"
+                    },
+                    {
+                        "name": "DB_SERVER",
+                        "value": "hss-project.crtyg95tlvz9.eu-north-1.rds.amazonaws.com"
+                    },
+                    {
+                        "name": "DB_USER",
+                        "value": "admin"
+                    },
+                    {
+                        "name": "DB_PASSWORD",
+                        "value": "5c8usi4qfYZCrAZ"
+                    }
+                ],
+                "mountPoints": [],
+                "volumesFrom": []
+            }
+        ],
+        "family": "hss-webapi",
+        "revision": 4,
+        "volumes": [],
+        "status": "ACTIVE",
+        "placementConstraints": [],
+        "compatibilities": [
+            "EC2"
+        ],
+        "requiresCompatibilities": [
+            "EC2"
+        ],
+        "cpu": "512",
+        "memory": "256",
+        "registeredAt": "2023-12-07T12:51:52.232000+01:00",
+        "registeredBy": "arn:aws:iam::883983425098:root"
+    },
+    "tags": []
+}
