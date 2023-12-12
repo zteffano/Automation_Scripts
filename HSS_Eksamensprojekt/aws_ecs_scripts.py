@@ -121,49 +121,5 @@ def start_task_with_td(cluster_name, td_name):
     output = run_command(cmd)
     return json.loads(output)
 
-# Main execution
-cluster_name = "hssproject-cluster"
-
-def main():
-    try:
-        # List tasks
-        tasks = list_tasks(cluster_name)
-        if not tasks["taskArns"]:
-            print("No tasks to stop.")
-        else:
-            # Assuming stopping the first task in the list
-            task_arn = tasks["taskArns"][0]
-            print(f"Stopping task: {task_arn}")
-
-            # Stop the task
-            stop_task_output = stop_task(cluster_name, task_arn)
-            print(f"Task stopped: {stop_task_output}")
-
-    except Exception as e:
-        print(f"An error occurred: {e}")
-
-
-def test():
-    #tasks = list_tasks(cluster_name)
-    #webapi_task_id = tasks['taskArns'][0]
-    #stop_task(cluster_name,webapi_task_id)
-    start_task_with_td(cluster_name,"hss-webapi:5")
-  
-    
-
-if __name__ == "__main__":
-
-    #main()aws
-    #tasks = list_tasks(cluster_name)
-    #cmd = "list-task-definitions"
-    #run_cmd_on_cluster(cluster_name,cmd)
-    #get_taskdefinitions()
-    #td_json_data = get_taskdefinition_info("hss-webapi:4")
-    #formatted_td_json_data = reformat_task_definition(td_json_data)
-    #new_td = register_new_task_definition(formatted_td_json_data)
-    #print("Registered new task definition:", new_td['taskDefinition']['taskDefinitionArn'])
-    #start_task_with_td(cluster_name,"hsswebapi:5")
-    test()
-    #run_command('echo Hello World')
 
 
